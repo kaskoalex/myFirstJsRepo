@@ -1,3 +1,6 @@
-var car = "Dodge Charger";
-var someObject = { str: "Some text", id: 5 };
-console.info("My first car was a", car, ". The object is: ", someObject);
+const div=document.getElementById("github")
+
+const logged=() => {
+  console.log(div.textContent);
+  console.log("commits");
+}
