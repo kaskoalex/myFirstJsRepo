@@ -9,7 +9,7 @@ console.log(`Первые две цифры ${numProduct}**3 равны ${(numPr
 
 console.log((num+'').split(''))
 
-console.log((num + '').split(''))
+
 
 
 console.log((num + '').split(''))
