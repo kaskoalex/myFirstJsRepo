@@ -11,7 +11,4 @@ console.log((num+'').split(''))
 
 
 
-
-console.log((num + '').split(''))
-
 console.log((num + '').split(''))
