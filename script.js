@@ -1,43 +1,65 @@
 'use strict';
 
-//let answer = confirm("Тебе есть 18 лет?")
-//console.log(answer);
+//if (true) console.log("TRUE");
+//if (false) console.log("FALSE");
 
-//let answer2 = prompt("Сколько вам лет?", " 18 лет")
-//console.log(answer2);
 
-// promt - всегда строка
+let n = "4"
 
-//console.log(5+'5');
+if (n==11) {
+  console.log("Command1");
+  console.log("Command2");
+  console.log("Command3");
+} else if (n==11) {
+  
+  console.log("Command4");
+  console.log("Command5");
+  console.log("Command6");
+} else if (n == 12) {
 
-//console.log(5 - '5');
-//console.log('5' * 5);
-//console.log(5 / '5');
+  console.log("Command7");
+  console.log("Command8");
+  console.log("Command9");
+} else if (n == 13) {
 
-//console.log(typeof String(123));
-//console.log( Number(true));
-//=1
-//console.log(Number(false));
-//=0
-//console.log(Number("asd"));
-//=NaN
+  console.log("Command10");
+  console.log("Command11");
+  console.log("Command12");
+} else   {
 
-console.log(Boolean(""));
-console.log(Boolean(null));
-console.log(Boolean(undefined));
-console.log(Boolean(NaN));
-console.log(Boolean(false));
+  console.log("Command14");
+  console.log("Command15");
+  console.log("Command16");
+}
 
-// all false
+// выполняет после правильного значения все следующии команды, если не будет остановлен.  W отличии от иф и елзе не переводит строки в числа и выдаёт фалзе
+switch(n){
+  case 3:
+    console.log(3)
+    break
+  case 4:
+    console.log(4)
+    break
+  case 10:
+    console.log(10)
+    break
+  case 11:
+    console.log(11)
+    break
+  default:
+    console.log("none of the values ​​are correct")  
+}  
 
-console.log(!!5);
-//  !! для определения булевого значения переменной false or true , имеет значение или нет
 
-//перевод в строку
-console.log(10+'');
-let a=10
-console.log(10 .toString());
-console.log(a.toString());
-
-//перевод строки в число
-console.log(+"10");
+switch (n) {
+  case 3:
+    console.log(3)
+    break
+  case 4:    
+  case 10:   
+  case 11:
+    console.log(11)
+    break
+  default:
+    console.log("none of the values ​​are correct")
+}  
