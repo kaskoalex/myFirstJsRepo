@@ -1,19 +1,43 @@
-let myVar;
+'use strict';
 
-myVar=10;
-console.log(typeof myVar);
-myVar = 12345678902346784815567677646888588n;
-console.log(typeof myVar);
-myVar = "Hallo Word"
-console.log(typeof myVar);
-myVar=true;
-console.log(typeof myVar);
-myVar=null;
-console.log(typeof myVar);
-myVar=undefined;
-console.log(typeof myVar);
+//let answer = confirm("Тебе есть 18 лет?")
+//console.log(answer);
 
-console.log(.5)
+//let answer2 = prompt("Сколько вам лет?", " 18 лет")
+//console.log(answer2);
 
-// ura ------------------
+// promt - всегда строка
 
+//console.log(5+'5');
+
+//console.log(5 - '5');
+//console.log('5' * 5);
+//console.log(5 / '5');
+
+//console.log(typeof String(123));
+//console.log( Number(true));
+//=1
+//console.log(Number(false));
+//=0
+//console.log(Number("asd"));
+//=NaN
+
+console.log(Boolean(""));
+console.log(Boolean(null));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN));
+console.log(Boolean(false));
+
+// all false
+
+console.log(!!5);
+//  !! для определения булевого значения переменной false or true , имеет значение или нет
+
+//перевод в строку
+console.log(10+'');
+let a=10
+console.log(10 .toString());
+console.log(a.toString());
+
+//перевод строки в число
+console.log(+"10");
