@@ -1,43 +1,32 @@
 'use strict';
 
-//let answer = confirm("Тебе есть 18 лет?")
-//console.log(answer);
+const n = +prompt("Введите число:")
 
-//let answer2 = prompt("Сколько вам лет?", " 18 лет")
-//console.log(answer2);
+switch (true) {
+  case n > 10:
+    console.log("n>10");
+    break
 
-// promt - всегда строка
+  case n <= 10:
+    console.log("n<=10");
+    break
+  default:
+    console.log("none of the values ​​are correct");
+}
 
-//console.log(5+'5');
+switch (true) {
+  case 5 < n && n < 10:
+    console.log("5<n<10");
+    break
 
-//console.log(5 - '5');
-//console.log('5' * 5);
-//console.log(5 / '5');
+  default:
+    console.log("none of the values ​​are correct");
+}  
 
-//console.log(typeof String(123));
-//console.log( Number(true));
-//=1
-//console.log(Number(false));
-//=0
-//console.log(Number("asd"));
-//=NaN
 
-console.log(Boolean(""));
-console.log(Boolean(null));
-console.log(Boolean(undefined));
-console.log(Boolean(NaN));
-console.log(Boolean(false));
+let result = n ===10 ? 1 : 22
+// если сравнение истинна - то берётся первое значение, лож - второе.
 
-// all false
+console.log(result)
 
-console.log(!!5);
-//  !! для определения булевого значения переменной false or true , имеет значение или нет
-
-//перевод в строку
-console.log(10+'');
-let a=10
-console.log(10 .toString());
-console.log(a.toString());
-
-//перевод строки в число
-console.log(+"10");
+n === 10 ? console.log("result11") : console.log("result222")
