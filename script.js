@@ -1,43 +1,17 @@
 'use strict';
 
-//let answer = confirm("Тебе есть 18 лет?")
-//console.log(answer);
+//let str = +prompt("Сколько тебе лет?")
 
-//let answer2 = prompt("Сколько вам лет?", " 18 лет")
-//console.log(answer2);
+//let result = str + 10
+//console.log(result);
 
-// promt - всегда строка
 
-//console.log(5+'5');
+let str = prompt("Сколько тебе лет?")
 
-//console.log(5 - '5');
-//console.log('5' * 5);
-//console.log(5 / '5');
+console.log(parseInt(str));
+//parseInt возвращает цельное число в начале строки игнорируя не числа
 
-//console.log(typeof String(123));
-//console.log( Number(true));
-//=1
-//console.log(Number(false));
-//=0
-//console.log(Number("asd"));
-//=NaN
+console.log(parseFloat(str));
+// выводит дробные числа
 
-console.log(Boolean(""));
-console.log(Boolean(null));
-console.log(Boolean(undefined));
-console.log(Boolean(NaN));
-console.log(Boolean(false));
-
-// all false
-
-console.log(!!5);
-//  !! для определения булевого значения переменной false or true , имеет значение или нет
-
-//перевод в строку
-console.log(10+'');
-let a=10
-console.log(10 .toString());
-console.log(a.toString());
-
-//перевод строки в число
-console.log(+"10");
+console.log(parseInt("10ff",16));
