@@ -1,91 +1,48 @@
 'use strict';
 
-function getMessage() {
-  console.log("Hello Word");
+const countSum = function (a, b) {
+  console.log(a + b);
 }
 
-getMessage()
-getMessage()
-getMessage()
+countSum(3, 5)
 
-function cleanHandsOperation1(){
-    function dirtyHands(){
-      console.log("Испачкать руки");
-    }
+//----------------------------------------
 
-    function goToTheBathroom() {
-      console.log("Пойти в ванную комнату");
-    }
+let res
 
-    
-    function cleanHands(){
-      console.log("Помыть руки");
-    }
-
-    
-
-    dirtyHands()
-    goToTheBathroom()
-    cleanHands()   
-    
-
-};
-
-cleanHandsOperation1();
-
-
-function cleanHandsOperation2() {
-  function step(str) {
-    console.log(str);
-  }
-
-  step("Испачкать руки")
-  step("Пойти в ванную комнату")
-  step("Помыть руки")
-
+const countSum1 = function (a, b) {
+  res = a + b
 }
 
-cleanHandsOperation2();
+countSum1(3, 5)
+console.log(res)
+// вызвать переменную можно только после отработки функции
 
+let ress
 
-
-
-function cleanHandsOperation() {
-  function step(index,str) {
-    console.log(index+" "+str);
-  }
-
-  step(1, "Испачкать руки")
-  step(2, "Пойти в ванную комнату")
-  step(3, "Помыть руки")
-
-};
-
-cleanHandsOperation();
-// function можно вызвать до и после объявления функции.
-
-const cleanHandsOperat = function () {
-  const step=function (index, str) {
-    console.log(index + " " + str);
-  }
-
-  step(1, "Испачкать руки")
-  step(2, "Пойти в ванную комнату")
-  step(3, "Помыть руки")
-
+const countSum2 = function (a, b) {
+  return a + b
 }
 
-cleanHandsOperat();
+ress= countSum2(3, 5)
+console.log(ress)
 
-// const function - фукция вызывается только после объявления
 
-const cleanHandsOperatu = function () {
-  const step = new Function ("index", "str", "console.log(str)")
 
-  step(111, "Испачкать руки")
-  step(2, "Пойти в ванную комнату")
-  step(3, "Помыть руки")
-
+const countSum3 = function (a, b) {
+  return a + b
 }
 
-cleanHandsOperatu();
+console.log(countSum3(3,10));
+
+
+
+const countSum4 = function (a, b,callback) {
+  return a + callback(b)
+}
+
+const secondFunc = function(num) {
+  return num+2
+}
+
+console.log(countSum4(3, 10, secondFunc));
