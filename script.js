@@ -1,32 +1,91 @@
 'use strict';
 
-const n = +prompt("Введите число:")
-
-switch (true) {
-  case n > 10:
-    console.log("n>10");
-    break
-
-  case n <= 10:
-    console.log("n<=10");
-    break
-  default:
-    console.log("none of the values ​​are correct");
+function getMessage() {
+  console.log("Hello Word");
 }
 
-switch (true) {
-  case 5 < n && n < 10:
-    console.log("5<n<10");
-    break
+getMessage()
+getMessage()
+getMessage()
 
-  default:
-    console.log("none of the values ​​are correct");
-}  
+function cleanHandsOperation1(){
+    function dirtyHands(){
+      console.log("Испачкать руки");
+    }
+
+    function goToTheBathroom() {
+      console.log("Пойти в ванную комнату");
+    }
+
+    
+    function cleanHands(){
+      console.log("Помыть руки");
+    }
+
+    
+
+    dirtyHands()
+    goToTheBathroom()
+    cleanHands()   
+    
+
+};
+
+cleanHandsOperation1();
 
 
-let result = n ===10 ? 1 : 22
-// если сравнение истинна - то берётся первое значение, лож - второе.
+function cleanHandsOperation2() {
+  function step(str) {
+    console.log(str);
+  }
 
-console.log(result)
+  step("Испачкать руки")
+  step("Пойти в ванную комнату")
+  step("Помыть руки")
 
-n === 10 ? console.log("result11") : console.log("result222")
+}
+
+cleanHandsOperation2();
+
+
+
+
+function cleanHandsOperation() {
+  function step(index,str) {
+    console.log(index+" "+str);
+  }
+
+  step(1, "Испачкать руки")
+  step(2, "Пойти в ванную комнату")
+  step(3, "Помыть руки")
+
+};
+
+cleanHandsOperation();
+// function можно вызвать до и после объявления функции.
+
+const cleanHandsOperat = function () {
+  const step=function (index, str) {
+    console.log(index + " " + str);
+  }
+
+  step(1, "Испачкать руки")
+  step(2, "Пойти в ванную комнату")
+  step(3, "Помыть руки")
+
+}
+
+cleanHandsOperat();
+
+// const function - фукция вызывается только после объявления
+
+const cleanHandsOperatu = function () {
+  const step = new Function ("index", "str", "console.log(str)")
+
+  step(111, "Испачкать руки")
+  step(2, "Пойти в ванную комнату")
+  step(3, "Помыть руки")
+
+}
+
+cleanHandsOperatu();
