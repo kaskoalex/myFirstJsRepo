@@ -1,81 +1,62 @@
 'use strict';
 
+const potato=10
 
-const countSum4 = function (a, b,callback) {
-  return a + callback(b)
-}
 
-const secondFunc = function(num) {
-  return num+2
-}
 
-console.log(countSum4(3, 10, secondFunc));
-
-//-----------------------------------------------
-
-function one() {
-  console.log("one")
-}
-
-const two = function() {
-  console.log("two")
-}
-
-console.log(one);
-console.log(two);
-
-//---------------------------------------------
-
-const countSum5 = function (a, b, callback) {
-  return a + callback(b)
+for (let i = 10; i > 0; i--) {
+  console.log("Картошка N" + i + " почищена");
 }
 
 
-console.log(countSum5(3, 10, function (num) {
-  return num + 2
-}));
-
-//----------------------------------------------------
-const money=5000
-const expenses1=200
-const expenses2=300
-
-const sumExpenses= function(exp1,exp2) {
-  return exp1+exp2
+for (let i = 1; i < 11; i++) {
+  console.log("Картошка N" + i + " почищена");
 }
 
-const countTotal = function() {
-  return money - sumExpenses(expenses1, expenses2)
+for (let i = 1; i < 11; i++) {
+  if (i===5) continue  //пропустить итерацию n 5
+  console.log("Картошка N" + i + " почищена");
 }
 
-console.log(countTotal());
-console.log(sumExpenses(expenses1,expenses2))
+for (let i = 1; i < 11; i++) {
+  if (i === 5) break  //остановка
+  console.log("Картошка N" + i + " почищена");
+}
 
+for (let i = 1; i < 11; i++) {
+  if (i !== 5)   //пропустить итерацию n 5
+  console.log("Картошка N" + i + " почищена");
+}
+
+//const peelPotato = function(potatoIndex){
+  //if (potatoIndex>0){
+    //console.log("Картошка N" + potatoIndex +" по//чищена");
+    //potatoIndex--
+    //peelPotato(potatoIndex)
+  //}
+//}
+//-- рекурсия  --
+//peelPotato(potato)
+
+let potato = 10
+
+while (potato>0) {
+  console.log("Картошка N" + potato + " почищена");
+  potato--
+}
 
 //--------------------------------------------------
 
 
-const countTotal1 = function (count, call) {
-  return count - call(expenses1, expenses2)
-}
 
-console.log(countTotal1(money, function(exp1,exp2){
-  return exp1+exp2
-}));
 
-//-------------------------------------------------
 
-const sendServer = function () //через задачу в фунчцию call -задержываются обе функции
-{ 
-  setTimeout(function () { 
-    console.log("Вызов прошёл");
-   },2000)
-}
 
-const someFunc=function () {
-  console.log("А теперь отработала вторая фу.")
-  }
- 
 
-sendServer()
-someFunc()
+//------------------------------------------------
+let potato = 10
+
+do {
+  console.log("Картошка N" + potato + " почищена");
+  potato--
+} while(false)
