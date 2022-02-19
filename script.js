@@ -1,93 +1,165 @@
 
-
 /*
-const user1 = { 
-  name: 'Alex',
-  say: function () { 
-    console.log(this.name); // вызывает имя этого (this) объекта
+let arr=[1,2,3,4,5]
+
+console.log(arr)
+console.log(arr.join(',')) // получаем строчку в консоль чрез join() или join(','),через запятую, ('') всё вместе без отступа, (' ')  с отступом
+
+console.log(arr.toString())
+
+console.log(arr.__proto__) // прототим массива
+console.log(Array.prototype) // прототип конструктора
+
+
+const man={
+  hands:2,
+  lags:2,
+  eyes:2,
+  walk: function(){
+    console.log('ich gehe')
+  },
+  talk: function () { 
+    console.log('Ich rede')
    }
 }
 
-const user2 = {
-  name: 'Vlad',
-  say: function () {
-    console.log(this.name);
+const newMan = Object.create(man) // создание нового объекта на основе шаблона man
+const newWoman = Object.create(man)
+
+newMan.name = 'Ivan'
+newMan.age=23
+
+newWoman.name = 'Anna'
+newWoman.age=22
+
+
+
+console.log(newWoman)
+console.log(newMan)
+
+
+
+const worker = {
+  workplace: 1,
+  dinner: 1,
+  goToWork: function () {
+    console.Log('Gehen zu Arbeit')
+
+  },
+  leaveWork: function () {
+    console.Log('Heim gehen')
+  },
+  work: function () {
+    console.log('Arbeiten')
+  },
+  sayHello: function () {
+    console.log('Hi, ich bin ' + this.name)
   }
 }
 
-user1.say()
-user2.say()
+const frontEndDev = Object.create(worker)
+const backEndDev = Object.create(worker)
 
+frontEndDev.dinner = 2
+frontEndDev.role = 'Front End Developer'
+backEndDev.role = 'Back End Developer'
+
+frontEndDev.work = function () {
+  console.log('schreibe gute Kode, esse plätzchen')
+}
+backEndDev.work = function () {
+  console.log('Ärgere mich mit datenbank, brauch frei')
+}
+
+
+const developer1 = Object.create(frontEndDev)
+const developer2 = Object.create(frontEndDev)
+const developer3 = Object.create(backEndDev)
+const developer4 = Object.create(backEndDev)
+
+
+developer1.name = 'Alex'
+developer2.name = 'Ivan'
+developer3.name = 'Anna'
+developer4.name = 'Elena'
+
+
+frontEndDev.work()
+backEndDev.work()
+
+console.log(frontEndDev)
+console.log(backEndDev)
+
+developer1.sayHello()
+developer2.sayHello()
+developer3.sayHello()
+developer4.sayHello()
+
+console.log(developer1.hasOwnProperty('name'));  // передаём название свойства, которое хотим проверить есть оно или нет false and true
+
+console.log(developer1.__proto__.hasOwnProperty('role')); // подтверждение наличия свойства находящегося в прототипе.
+console.log(developer1.__proto__.__proto__.hasOwnProperty('workplace'));
+
+console.log(frontEndDev.isPrototypeOf(developer1));
+// проверка, является ли  frontEndDev прототипом developer1
+
+
+
+const person1 = {
+  name: 'Vlad'
+}
+const person2 = {
+  name: 'Alex'
+}
+const person3 = {
+  name: 'Ivan'
+}
 */
 
-/*
+const Person = function (name) {
+  this.name = name
 
-const user1 = {
-  name: 'Alex',
-  say: say
-  
+  const age = 33 // создание переменной внутри функции конструктора / скрытая переменная не видимая в конструкторе
+
+  this.sayHello = function () { 
+    console.log('Hi, ich bin  ' + this.name);
+    console.log('ich bin  ' + age + ' Jahre alt');
+   }
 }
 
-const user2 = {
-  name: 'Vlad',
-  say: say
-  
-}
-
-function say(a,b) {
-  console.log(a+b)
-  console.log(this.name); // this - указывает на user ; say() без user не работает
-}
-
-user1.say(1,2)
-user2.say(1,2)
-
-say.call(user1, 1, 2)
-say.apply(user2,[1,2])  // applay принимает второй аргумент в виде массива
-
-*/
-
-const user1 = {
-  name: 'Alex',
-  say: say
-
-}
-
-const user2 = {
-  name: 'Vlad',
-  say: say
-
-}
-
-function say() {
-
-  console.log(this.name);
-}
-
-const newSay = say.bind(user1)
-newSay()
-
-//------------------------------------------------
-
-const btns = document.querySelectorAll('button')
-
-const chaColorBorder = function () {
-  this.style.border = '2px solid red'
-}
-
-btns.forEach(function (btn) {
-  btn.addEventListener('click, chaColorBorder)')
-})
+/* 
+Person.prototype.sayHello= function () {
+  console.log('Hi, ich bin  ' + this.name); // создание фукции через прототип, такая функция у всех объектов одинакова
+}*/
 
 
-//------------------------------------------------------
+const person1 = new Person('Vlad') // фукция с оператором new является функцией конструктором и пишутся с большой буквы
 
-const counter = (a, b) => a + b; //или с возвратом return
+//------------ функция конструктор всегда вызывается через оператор new
+const person2 = new Person('Alex')
+const person3 = new Person('Ivan')
 
-const rep = (a, b) => {
-  return a + b
-}
+console.log(person1)
 
-const rep = a => a + 3
+person1.sayHello()
 
-console.log(counter(1, 4))
+console.log(person1 instanceof Person) // зависит ли персон1 от конструктора персон
+
+//----------------------------------------------------
+//     ---  цепочка наследования ----- 
+
+const Student = function (name,role) {
+  Person.call(this, name) // call   переопределяет контекст вызова и передача аргументов - name
+  this.role=role
+ }
+
+Student.prototype=Object.create(Person.prototype)
+Student.prototype.constructor=Student // присваевание объекту конструктора
+
+
+
+ const newStudent = new Student('Vlad','studen')
+
+ console.log(newStudent)
+
+
