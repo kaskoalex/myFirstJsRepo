@@ -1,36 +1,80 @@
 "use strict";
+/*
+const Person1 = function (name,age) { 
+  this.name= name
+  this.age= age
+ }
 
-const DomElement = function (selector, height, width, bg, fontSize, textalign) {
+ Person1.prototype.sayHello = function () {
+   console.log(`Hi, ich bin ${this.name}`);
+   }
 
-  this.selector = selector
-  this.height = height + 'px'
-  this.width = width + 'px'
-  this.bg = bg
-  this.fontSize = fontSize + 'px'
-  this.textalign = textalign
+const person1 = new Person1('Vlad', 23)
+person1.sayHello()
+console.log(person1);
+*/
 
+
+class Person {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+    Person.incrementCount()
+
+  }
+
+  static count = 0 // статические переменные работают только внутри функции и не имеют отношения к создаваемому объекту
+
+  static getCount() {
+    return Person.count
+  }
+
+  static incrementCount() {
+    Person.count++
+  }
+
+  sayHello() {
+    console.log(`Hi, ich bin ${this.name}`);
+  }
+}
+
+const person = new Person('Vlad', 23)
+const person1 = new Person('Vlad', 23)
+const person2 = new Person('Vlad', 23)
+const person3 = new Person('Vlad', 23)
+person.sayHello()
+console.log(person);
+console.log(Person.getCount());
+
+console.log(JSON.stringify(person).length) // превращаем объект в строчку и считываем количество символов
+
+class FrontEndDev extends Person {
+  constructor(name, age, skills = []) {
+    super(name, age)
+    this._skills = skills
+  }
+  test() {
+    super.sayHello()
+  }
+  get skills() {
+    return this._skills // считывает
+  }
+
+  set skills(str){
+    console.log(str);
+    this.skills.push(str)// записывает
+  }
 
 }
 
-DomElement.prototype.createElement = function () {
-  let div
-  if (this.selector[0] === '.') {
-    div = document.createElement('div')
-    div.classList.add(this.selector.slice(1))
-  }
-  if (this.selector[0] === '#') {
-    div = document.createElement('p')
-    div.id = this.selector.slice(1)
-  }
-  div.style.cssText = `height: ${this.height}; width: ${this.width}; background: ${this.bg}; font-size: ${this.fontSize};text-align: ${this.textalign}`
-  div.textContent = 'Lesson - 15'
-  document.body.append(div)
-  return div
-
-}
 
 
-const divNew = new DomElement('.block', 50, 200, 'green', 25,'center')
+const dev = new FrontEndDev('Vlad', 23)
 
-divNew.createElement()
+dev.skills = 'Первое свойство'
+dev.skills = 'Второе свойство'
+dev.skills = 'Третье свойство'
 
+console.log(dev)
+dev.sayHello()
+dev.test()
