@@ -1,80 +1,92 @@
 "use strict";
+
 /*
-const Person1 = function (name,age) { 
-  this.name= name
-  this.age= age
- }
+const user ={
+  name:'Alex',
+  age:33,
+  isAuth: false,
+  projects: {
+    firstPro:'firstPro',
+    secondPro:'secondPro'
+  }
+}
 
- Person1.prototype.sayHello = function () {
-   console.log(`Hi, ich bin ${this.name}`);
-   }
 
-const person1 = new Person1('Vlad', 23)
-person1.sayHello()
-console.log(person1);
+//const name = user.name
+//const age = user.age
+//const isAuth = user.isAuth
+
+const {name,age,isAuth,projects,projects:{firstPro,secondPro}} = user;
+
+console.log(user.name);
+console.log(name);
+
+console.log(age);
+console.log(isAuth);
+console.log(projects);
+
+console.log(firstPro);
+console.log(secondPro);
+
+
+
+const names = [ 'Art', 'Max','Tor', 'Pet','Al']
+
+const [Art, Max, Tor, Pet, Al] = names
+
+const art=names[0]
+
+console.log(art)
+console.log(Art)
+
+
+const logger =()=>{
+  console.log('log');
+}
+
+logger()
+
+
+const logger = ({first,second,third})=>{
+  console.log(second);
+}
+
+logger({first:'I',second:'JS',third:'love'})
+
 */
 
 
-class Person {
-  constructor(name, age) {
-    this.name = name
-    this.age = age
-    Person.incrementCount()
+// --------------  Rest  --------------
 
-  }
-
-  static count = 0 // статические переменные работают только внутри функции и не имеют отношения к создаваемому объекту
-
-  static getCount() {
-    return Person.count
-  }
-
-  static incrementCount() {
-    Person.count++
-  }
-
-  sayHello() {
-    console.log(`Hi, ich bin ${this.name}`);
-  }
-}
-
-const person = new Person('Vlad', 23)
-const person1 = new Person('Vlad', 23)
-const person2 = new Person('Vlad', 23)
-const person3 = new Person('Vlad', 23)
-person.sayHello()
-console.log(person);
-console.log(Person.getCount());
-
-console.log(JSON.stringify(person).length) // превращаем объект в строчку и считываем количество символов
-
-class FrontEndDev extends Person {
-  constructor(name, age, skills = []) {
-    super(name, age)
-    this._skills = skills
-  }
-  test() {
-    super.sayHello()
-  }
-  get skills() {
-    return this._skills // считывает
-  }
-
-  set skills(str){
-    console.log(str);
-    this.skills.push(str)// записывает
-  }
+const sum1 = (a,b,c, ...params) => {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+  console.log(params)
 
 }
 
+sum1(1,2,3,4,5,6,'false')
 
+const sum2 = ( ...params) => {  
+  
+ console.log(params) 
 
-const dev = new FrontEndDev('Vlad', 23)
+}
 
-dev.skills = 'Первое свойство'
-dev.skills = 'Второе свойство'
-dev.skills = 'Третье свойство'
+sum2(1, 2, 3, 4, 5, 6)
 
-console.log(dev)
-dev.sayHello()
-dev.test()
+const sum3 = (...params) => {
+
+  return params.reduce((sum,num)=>sum+num)
+
+}
+
+console.log(sum3(1, 2, 3, 4, 5, 6));
+
+// ------------  Spread ---------------
+
+const fAr=[1,2,3,4]
+const seAr=[5,6,7,8]
+
+console.log([12,2225,...fAr,...seAr]);
