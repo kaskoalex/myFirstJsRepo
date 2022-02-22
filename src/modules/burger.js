@@ -3,6 +3,7 @@ const burgerModule =( )=> {
 
   console.log(burger);
   console.log(burger);
+  console.log(burger);
 }
 
 module.exports = burgerModule

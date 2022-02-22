@@ -1,1 +1,0 @@
-(()=>{var o={65:o=>{o.exports=()=>{console.log("best slider")}},852:o=>{o.exports=()=>{const o="my menu";console.log(o),console.log(o)}}},e={};function s(r){var t=e[r];if(void 0!==t)return t.exports;var n=e[r]={exports:{}};return o[r](n,n.exports,s),n.exports}(()=>{"use strict";const o=s(852),e=s(65);o(),e(),console.log("my slider")})()})();
